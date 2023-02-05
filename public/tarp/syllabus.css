@@ -1,0 +1,20 @@
+#intro {
+  color:yellow;
+  background-color: red;
+}
+
+.bg-color-blue {
+  background-color: blue;
+}
+
+.bg-color-danger {
+  background-color: red;
+}
+
+.bg-color-success {
+  background-color: green;
+}
+
+.fg-color-white {
+  color: white;
+}

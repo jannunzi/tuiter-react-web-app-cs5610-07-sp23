@@ -1,0 +1,127 @@
+.list {
+  background-color: red;
+}
+
+.list li.i1 {
+  color: yellow;
+}
+
+.list > li > p {
+  color: blue;
+}
+
+.list li:nth-child(2) {
+  color: purple;
+  font-weight: bold;
+  font-size: 3em;
+  font-family: "Arial Black";
+}
+
+.bg-color-yellow {
+  background-color: yellow;
+}
+.bg-color-blue {
+  background-color: blue;
+}
+.bg-color-red {
+  background-color: red;
+}
+.fg-color-white {
+  color: white;
+}
+.dimension-portrait {
+  width: 50px;
+  height: 100px;
+}
+.dimension-landscape {
+  width: 100px;
+  height: 50px;
+}
+.dimension-square {
+  width: 100px;
+  height: 100px;
+}
+.position-relative {
+  position: relative;
+}
+.position-absolute {
+  position: absolute;
+}
+.position-fixed {
+  position: fixed;
+}
+.move-down-50px {
+  top: 50px;
+}
+.move-right-25px {
+  left: 25px;
+}
+.move-up-50px {
+  bottom: 50px;
+}
+.top-0 {
+  top: 0px;
+}
+
+.bottom-0 {
+  bottom: 0px;
+}
+
+.left-0 {
+  left: 0px;
+}
+
+.right-0 {
+  right: 0px;
+}
+
+.move-to-top {
+  z-index: 100;
+}
+
+.love-it {
+  margin-top: 81px;
+  margin-left: 80px;
+  border: 20px solid red;
+  border-bottom-color: purple;
+  border-right-style: dotted;
+  border-right-color: blue;
+  padding: 40px;
+  padding-left: 20px;
+}
+
+/*@media (min-width: 0px)*/
+/*and (max-width: 600px) {*/
+/*  body {*/
+/*    background-color: yellow;*/
+/*  }*/
+/*  .media-query {*/
+/*    background-color: red;*/
+/*    color: white;*/
+/*  }*/
+/*}*/
+
+/*@media (min-width: 600px)*/
+/*and (max-width: 1200px) {*/
+/*  body {*/
+/*    background-color: blue;*/
+/*    color: white;*/
+/*  }*/
+/*  .media-query {*/
+/*    background-color: yellow;*/
+/*    color: black;*/
+/*  }*/
+/*}*/
+
+/*@media (min-width: 1200px)*/
+/*and (max-width: 1800px) {*/
+/*  body {*/
+/*    background-color: red;*/
+/*    color: white;*/
+/*  }*/
+/*  .media-query {*/
+/*    background-color: blue;*/
+/*    color: white;*/
+/*  }*/
+/*}*/
+
