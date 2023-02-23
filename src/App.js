@@ -1,24 +1,30 @@
 import logo from './logo.svg';
-import './App.css';
+import Loop from "./components/loop";
+import Add from "./components/add";
+import House from "./components/house";
+import {BrowserRouter as Router, Link} from "react-router-dom";
+import {Route, Routes} from "react-router";
+import Home from "./screens/home";
+import Tarp from "./screens/tarp";
 
 function App() {
+  const hello = 'Hello World!'
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Welcome to Web Dev Spring 2023</h1>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Router>
+        <Link to='/'>Home</Link>|
+        <Link to='/house'>House</Link>|
+        <Link to='/add/3/4'>Add</Link>|
+        <Link to='/loop'>Loop</Link>|
+        <Link to='/tarp'>Tarp</Link>
+        <Routes>
+          <Route index element={<Home/>}/>
+          <Route path="/house" element={<House/>}/>
+          <Route path="/add/:A/:B" element={<Add/>}/>
+          <Route path="/loop" element={<Loop/>}/>
+          <Route path="/tarp/*" element={<Tarp/>}/>
+        </Routes>
+      </Router>
     </div>
   );
 }
