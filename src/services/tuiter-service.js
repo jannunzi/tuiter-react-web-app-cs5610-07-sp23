@@ -1,5 +1,7 @@
 import axios from "axios";
-const TUITS_URL = "http://localhost:4000/tuits";
+const BASE_URL = process.env.REACT_APP_API_URL;
+const TUITS_URL = `${BASE_URL}/tuits`;
+console.log("TUITS_URL", TUITS_URL);
 
 export const findAllTuits = async () => {
   const response = await axios.get(TUITS_URL);
