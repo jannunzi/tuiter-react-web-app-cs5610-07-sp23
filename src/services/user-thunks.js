@@ -9,6 +9,14 @@ export const loginThunk = createAsyncThunk(
   }
 );
 
+export const updateUserThunk = createAsyncThunk(
+  "user/updateUser",
+  async (user) => {
+    const status = await userService.updateUser(user);
+    return user;
+  }
+);
+
 export const logoutThunk = createAsyncThunk("user/logout", async () => {
   const status = await userService.logout();
   return status;

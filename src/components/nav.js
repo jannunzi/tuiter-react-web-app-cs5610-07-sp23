@@ -9,7 +9,8 @@ function Navigation() {
       <Link to="/todos">ToDos</Link> |<Link to="/todos-redux">Todos Redux</Link>{" "}
       |<Link to="/tuits">Tuits</Link>|
       {!currentUser && <Link to="/login">Login</Link>} |
-      {currentUser && <Link to="/profile">Profile</Link>}
+      {currentUser && <Link to="/profile">Profile</Link>} |
+      {currentUser && currentUser.isAdmin && <Link to="/admin">Admin</Link>}
     </div>
   );
 }

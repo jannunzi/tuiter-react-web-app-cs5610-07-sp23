@@ -2,23 +2,27 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, Navigate } from "react-router";
 import { updateCurrentUser } from "../redux/user-reducer";
-import { profileThunk, logoutThunk } from "../services/user-thunks";
+import {
+  profileThunk,
+  logoutThunk,
+  updateUserThunk,
+} from "../services/user-thunks";
 function ProfileScreen() {
   const { currentUser } = useSelector((state) => state.user);
   const [profile, setProfile] = useState(currentUser);
-  //   setProfile(currentUser);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const save = () => {
-    dispatch(updateCurrentUser(profile));
+    dispatch(updateUserThunk(profile));
   };
 
-  useEffect(() => {
-    dispatch(profileThunk());
+  useEffect(async () => {
+    const { payload } = await dispatch(profileThunk());
+    setProfile(payload);
   }, []);
-  if (!currentUser) {
-    return <Navigate to="/login" />;
-  }
+  // if (!currentUser) {
+  //   return <Navigate to="/login" />;
+  // }
   return (
     <div>
       <h1>

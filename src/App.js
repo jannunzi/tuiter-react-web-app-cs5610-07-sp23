@@ -15,6 +15,7 @@ import TodosScreen from "./screens/todos-screen";
 import LoginScreen from "./screens/login";
 import TuitsScreen from "./screens/tuits-screen";
 import Navigation from "./components/nav";
+import AdminScreen from "./screens/admin-screen";
 
 function App() {
   const hello = "Hello World!";
@@ -24,6 +25,7 @@ function App() {
         <Router>
           <Navigation />
           <Routes>
+            <Route path="/admin" element={<AdminScreen />} />
             <Route path="/tuits" element={<TuitsScreen />} />
             <Route path="/login" element={<LoginScreen />} />
             <Route path="/todos-redux" element={<TodosScreen />} />
