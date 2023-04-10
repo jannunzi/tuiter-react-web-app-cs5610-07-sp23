@@ -5,6 +5,12 @@ const api = axios.create({
   withCredentials: true,
 });
 
+export const findUserById = async (userId) => {
+  const response = await api.get(`${USERS_URL}/profile/${userId}`);
+  const user = response.data;
+  return user;
+};
+
 export const findAllUsers = async () => {
   const response = await api.get(USERS_URL);
   const users = response.data;

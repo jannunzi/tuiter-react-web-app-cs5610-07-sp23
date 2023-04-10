@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate, Navigate } from "react-router";
-import { updateCurrentUser } from "../redux/user-reducer";
+import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
+import { findMyReviews } from "../napster/reviews-service";
 import {
   profileThunk,
   logoutThunk,
@@ -10,27 +11,24 @@ import {
 function ProfileScreen() {
   const { currentUser } = useSelector((state) => state.user);
   const [profile, setProfile] = useState(currentUser);
+  const [reviews, setReviews] = useState([]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const save = () => {
     dispatch(updateUserThunk(profile));
   };
-
+  const getMyReview = async () => {
+    const response = await findMyReviews();
+    setReviews(response);
+  };
   useEffect(async () => {
     const { payload } = await dispatch(profileThunk());
     setProfile(payload);
+    getMyReview();
   }, []);
-  // if (!currentUser) {
-  //   return <Navigate to="/login" />;
-  // }
   return (
     <div>
-      <h1>
-        <button onClick={save} className="btn btn-primary float-end">
-          Save
-        </button>
-        Profile Screen
-      </h1>
+      <h1>Profile Screen</h1>
       {profile && (
         <div>
           <div>
@@ -101,6 +99,22 @@ function ProfileScreen() {
       >
         Logout
       </buton>
+      <button onClick={save} className="btn btn-primary float-end">
+        Save
+      </button>
+      <h2>My Reviews</h2>
+      <div className="list-group">
+        {reviews.map((review) => {
+          return (
+            <Link
+              className="list-group-item"
+              to={`/napster/album/${review.albumId}`}
+            >
+              {review.text}
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 }
